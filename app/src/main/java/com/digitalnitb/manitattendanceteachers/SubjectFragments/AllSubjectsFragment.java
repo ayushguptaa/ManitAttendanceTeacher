@@ -128,6 +128,8 @@ public class AllSubjectsFragment extends Fragment implements AllSubjectsAdapter.
                 String uid = mAuth.getCurrentUser().getUid();
                 final String subject = mData.get(mPosition);
                 String branch = (getResources().getStringArray(R.array.array_branches))[mBranch];
+//                if(mBranch==5)
+//                    branch="ECE";
                 String sem = (getResources().getStringArray(R.array.array_semseters))[mSem-1];
                 String key = branch+":"+sem;
                 final String value = subject + ":" + CommonFunctions.getClass(mBranch, mSem);
@@ -172,7 +174,20 @@ public class AllSubjectsFragment extends Fragment implements AllSubjectsAdapter.
 
     private void setmData(){
         mData.clear();
-        mData.addAll(Arrays.asList(CommonFunctions.getSubjects(mBranch, mSem)));
+        if(mBranch==5) {
+            if(mSem==1)
+                mData.addAll(Arrays.asList("Mathematics-I", "Computer Architecture","Data Structure","Operating System","C & C++"));
+            if(mSem==2)
+                mData.addAll(Arrays.asList("Mathematics-II", "Advanced Computer Architecture","Software Engineering","PPL","TOC"));
+            if(mSem==3)
+                mData.addAll(Arrays.asList("Mathematics-III", "Unix and Internal","Windows Programming","ADA","DBMS"));
+            if(mSem==4)
+                mData.addAll(Arrays.asList("Computer Optimization", "Computer Network","Compiler Design","Distributed System","Web Based Application"));
+            if(mSem==5)
+                mData.addAll(Arrays.asList("Computer Graphics", "Intelligent Systems","Mobile Application Development","Data Mining","Next Generation Network"));
+        }
+        else
+            mData.addAll(Arrays.asList(CommonFunctions.getSubjects(mBranch, mSem)));
         mAdapter.notifyDataSetChanged();
     }
 

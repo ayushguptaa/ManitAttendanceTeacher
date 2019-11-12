@@ -383,7 +383,7 @@ public class MainActivity extends AppCompatActivity implements MySubjectsFragmen
         String data[] = dataString.split(":");
         mSubjectTextView.setText(data[2]);
         mSubjectTextView.setTextColor(getResources().getColor(R.color.black));
-        mClassTextView.setText(String.format("%s, Sem %s : %s", data[0], data[1], data[3]));
+        mClassTextView.setText(String.format("%s, Sem %s : %s", "MCA", data[1], "MCA-301"));
         mColumnsInput.getEditText().setText(data[4]);
         mRowsInput.getEditText().setText(data[5]);
     }

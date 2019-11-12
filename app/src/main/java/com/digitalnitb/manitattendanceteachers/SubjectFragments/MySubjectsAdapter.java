@@ -39,6 +39,8 @@ public class MySubjectsAdapter extends RecyclerView.Adapter<MySubjectsAdapter.Vi
             holder.semTextView.setTextColor(mContext.getResources().getColor(R.color.black));
             holder.subjectTextView.setTextColor(mContext.getResources().getColor(R.color.black));
         }
+        if(data[0].equals("ECE"))
+            data[0]="MCA";
         holder.branchTextView.setText(data[0]);
         holder.semTextView.setText(data[1]);
         holder.subjectTextView.setText(data[2]);
